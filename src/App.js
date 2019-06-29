@@ -1,10 +1,12 @@
 import React from 'react'
 import './App.css'
 
+import Toggle from './components/toggle/toggle'
+
 function App() {
   return (
     <div className="app">
-      Hello, world!
+      <Toggle />
     </div>
   )
 }
