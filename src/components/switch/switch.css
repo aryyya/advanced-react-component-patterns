@@ -29,7 +29,10 @@
   border-radius: 100%;
   height: var(--switch-inner-width-and-height);
   width: var(--switch-inner-width-and-height);
-  transition: transform var(--switch-transition-speed) ease;
+  transition:
+    transform var(--switch-transition-speed) ease,
+    width calc(var(--switch-transition-speed) / 1.5) ease,
+    border-radius calc(var(--switch-transition-speed) / 1.5) ease;
   transform: translateX(-57.5%);
   box-shadow: 0 0 5px rgba(0, 0, 0, .2);
 }
@@ -44,7 +47,9 @@
 }
 
 .switch:active.switch--is-on .switch__inner {
-  transform: translateX(+27.5%);
+  transform: translateX(+17.5%);
+  width: calc(var(--switch-inner-width-and-height) + 10px);
+  border-radius: 55px;
 }
 
 .switch:active.switch--is-on {
@@ -53,7 +58,9 @@
 }
 
 .switch:active .switch__inner {
-  transform: translateX(-27.5%);
+  transform: translateX(-17.5%);
+  width: calc(var(--switch-inner-width-and-height) + 10px);
+  border-radius: 55px;
 }
 
 .switch:active {
