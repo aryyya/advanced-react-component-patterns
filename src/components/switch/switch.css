@@ -42,3 +42,21 @@
   border-color: #86D26C;
   background-color: #86D26C;
 }
+
+.switch:active.switch--is-on .switch__inner {
+  transform: translateX(+27.5%);
+}
+
+.switch:active.switch--is-on {
+  border-color: #A0EC86;
+  background-color: #A0EC86;
+}
+
+.switch:active .switch__inner {
+  transform: translateX(-27.5%);
+}
+
+.switch:active {
+  border-color: #D3FFB9;
+  background-color: #D3FFB9;
+}
