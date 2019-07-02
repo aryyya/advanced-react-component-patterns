@@ -3,13 +3,11 @@ import './App.css'
 
 import Toggle from './components/toggle/toggle'
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <Toggle>
-        <div>
-          <Toggle.Switch />
-        </div>
+        <Toggle.Switch />
         <Toggle.On>
           <p style={{ textAlign: 'center' }}>The switch is on!</p>
         </Toggle.On>

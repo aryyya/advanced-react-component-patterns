@@ -6,7 +6,15 @@ import React, {
 
 import Switch from '../switch/switch'
 
-const ToggleContext = createContext({})
+const ToggleContext = createContext()
+
+const useToggleContext = () => {
+  const context = useContext(ToggleContext)
+  if (!context) {
+    throw new Error(`context consumer must be nested inside of a context provider`)
+  }
+  return context
+}
 
 const Toggle = ({
   children
@@ -31,7 +39,7 @@ const Toggle = ({
 const ToggleOn = ({
   children
 }) => {
-  const { isOn } = useContext(ToggleContext)
+  const { isOn } = useToggleContext()
 
   return (
     isOn ? children : null
@@ -41,7 +49,7 @@ const ToggleOn = ({
 const ToggleOff = ({
   children
 }) => {
-  const { isOn } = useContext(ToggleContext)
+  const { isOn } = useToggleContext()
 
   return (
     !isOn ? children : null
@@ -49,7 +57,7 @@ const ToggleOff = ({
 }
 
 const ToggleSwitch = () => {
-  const { isOn, onClick } = useContext(ToggleContext)
+  const { isOn, onClick } = useToggleContext()
 
   return (
     <Switch
