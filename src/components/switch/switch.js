@@ -5,13 +5,15 @@ import classNames from 'classnames'
 
 const Switch = ({
   isOn,
-  onClick
+  onClick,
+  ...props
 }) => (
   <div
     className={classNames('switch', {
       'switch--is-on': isOn
     })}
     onClick={onClick}
+    {...props}
   >
     <div className="switch__inner" />
   </div>
