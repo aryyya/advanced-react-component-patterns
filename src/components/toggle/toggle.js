@@ -21,6 +21,8 @@ const Toggle = ({
 }) => {
   const [ isOn, setIsOn ] = useState(false)
   const toggle = () => setIsOn(!isOn)
+  
+  console.log('Toggle rendered')
 
   return (
     <div className="toggle">
@@ -41,6 +43,8 @@ const ToggleOn = ({
 }) => {
   const { isOn } = useToggleContext()
 
+  console.log('Toggle.On rendered')
+
   return (
     isOn ? children : null
   )
@@ -51,6 +55,8 @@ const ToggleOff = ({
 }) => {
   const { isOn } = useToggleContext()
 
+  console.log('Toggle.Off rendered')
+
   return (
     !isOn ? children : null
   )
@@ -58,6 +64,8 @@ const ToggleOff = ({
 
 const ToggleSwitch = () => {
   const { isOn, onClick } = useToggleContext()
+
+  console.log('Toggle.Switch rendered')
 
   return (
     <Switch
