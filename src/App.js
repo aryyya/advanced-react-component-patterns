@@ -7,7 +7,9 @@ function App() {
   return (
     <div className="app">
       <Toggle>
-        <Toggle.Switch />
+        <div>
+          <Toggle.Switch />
+        </div>
         <Toggle.On>
           <p style={{ textAlign: 'center' }}>The switch is on!</p>
         </Toggle.On>
