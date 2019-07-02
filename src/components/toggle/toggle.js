@@ -48,9 +48,7 @@ const ToggleOff = ({
   )
 }
 
-const ToggleSwitch = ({
-  ...props
-}) => {
+const ToggleSwitch = () => {
   const { isOn, onClick } = useContext(ToggleContext)
 
   return (
@@ -58,7 +56,6 @@ const ToggleSwitch = ({
       isOn={isOn}
       onClick={onClick}
       style={{ marginBottom: '10px' }}
-      {...props}
     />
   )
 }
