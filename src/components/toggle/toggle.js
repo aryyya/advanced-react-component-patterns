@@ -36,7 +36,10 @@ const Toggle = ({
           typeof children === 'function'
             ? children({
               isOn,
-              toggle
+              toggle,
+              togglerProps: {
+                onClick: toggle
+              }
             })
             : children
         }
@@ -46,26 +49,28 @@ const Toggle = ({
 }
 
 const ToggleOn = ({
-  children
+  children,
+  ...props
 }) => {
   const { isOn } = useToggleContext()
 
   console.log('Toggle.On rendered')
 
   return (
-    isOn ? children : null
+    isOn ? React.cloneElement(children, {...props}) : null
   )
 }
 
 const ToggleOff = ({
-  children
+  children,
+  ...props
 }) => {
   const { isOn } = useToggleContext()
 
   console.log('Toggle.Off rendered')
 
   return (
-    !isOn ? children : null
+    !isOn ? React.cloneElement(children, {...props}) : null
   )
 }
 

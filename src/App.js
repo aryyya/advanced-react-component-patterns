@@ -7,20 +7,29 @@ const App = () => {
   return (
     <div className="app">
       <Toggle>
-        {({ isOn, toggle }) => (
+        {({ isOn, toggle, togglerProps }) => (
           <div>
             <Toggle.Switch />
             <input type="checkbox" checked={isOn} onChange={toggle} />
             &nbsp;
-            <Toggle.On>The switch is on!</Toggle.On>
-            <Toggle.Off>The switch is off.</Toggle.Off>
+            <Toggle.On {...togglerProps}>
+              <div>The switch is on!</div>
+            </Toggle.On>
+            <Toggle.Off {...togglerProps}>
+              <div>The switch is off.</div>
+            </Toggle.Off>
           </div>
         )}
       </Toggle>
       <br />
       <Toggle>
         <Toggle.Switch />
-
+        <Toggle.On>
+          <div>ON</div>
+        </Toggle.On>
+        <Toggle.Off>
+          <div>OFF</div>
+        </Toggle.Off>
       </Toggle>
     </div>
   )
