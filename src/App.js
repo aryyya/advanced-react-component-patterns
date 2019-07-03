@@ -38,7 +38,7 @@ const App = () => {
         )}
       </Toggle>
       <br />
-      <Toggle>
+      <Toggle startOn>
         <Toggle.Switch />
         <Toggle.On>
           <div>ON</div>

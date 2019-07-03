@@ -19,14 +19,15 @@ const useToggleContext = () => {
 }
 
 const Toggle = ({
+  startOn,
   children
 }) => {
   console.log('Toggle rendered')
 
-  const [ isOn, setIsOn ] = useState(false)
+  const [ isOn, setIsOn ] = useState(startOn || false)
   const toggle = () => setIsOn(!isOn)
 
-  const toggleContextValue = {
+  const state = {
     isOn,
     onClick: toggle
   }
@@ -54,7 +55,7 @@ const Toggle = ({
 
   return (
     <div className="toggle">
-      <ToggleContext.Provider value={toggleContextValue}>
+      <ToggleContext.Provider value={state}>
         {childrenToRender}
       </ToggleContext.Provider>
     </div>
