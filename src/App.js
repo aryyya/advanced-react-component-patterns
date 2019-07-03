@@ -7,17 +7,27 @@ const App = () => {
   return (
     <div className="app">
       <Toggle>
-        {({ isOn, toggle, togglerProps }) => (
+        {({ isOn, toggle, getTogglerProps }) => (
           <div>
             <Toggle.Switch />
             <input type="checkbox" checked={isOn} onChange={toggle} />
             &nbsp;
-            <Toggle.On {...togglerProps}>
+            <Toggle.On {...getTogglerProps()}>
               <div>The switch is on!</div>
             </Toggle.On>
-            <Toggle.Off {...togglerProps}>
+            <Toggle.Off {...getTogglerProps()}>
               <div>The switch is off.</div>
             </Toggle.Off>
+            <div>
+              <button
+                {...getTogglerProps({
+                  onClick: () => alert(`The switch is ${isOn ? 'on' : 'off'}!`)
+                })}
+                style={{ padding: '5px 10px' }}
+              >
+                {isOn ? 'ON' : 'OFF'}
+              </button>
+            </div>
           </div>
         )}
       </Toggle>

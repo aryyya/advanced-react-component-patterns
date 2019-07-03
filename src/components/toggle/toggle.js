@@ -19,30 +19,39 @@ const useToggleContext = () => {
 const Toggle = ({
   children
 }) => {
+  console.log('Toggle rendered')
+
   const [ isOn, setIsOn ] = useState(false)
   const toggle = () => setIsOn(!isOn)
-  
-  console.log('Toggle rendered')
+
+  const toggleContextValue = {
+    isOn,
+    onClick: toggle
+  }
+
+  const getTogglerProps = ({
+    onClick,
+    ...props
+  } = {}) => ({
+    onClick: (...args) => {
+      onClick && onClick(...args)
+      toggle()
+    },
+    ...props
+  })
+
+  const childrenToRender = typeof children === 'function'
+    ? children({
+      isOn,
+      toggle,
+      getTogglerProps
+    })
+    : children
 
   return (
     <div className="toggle">
-      <ToggleContext.Provider
-        value={{
-          isOn,
-          onClick: toggle
-        }}
-      >
-        {
-          typeof children === 'function'
-            ? children({
-              isOn,
-              toggle,
-              togglerProps: {
-                onClick: toggle
-              }
-            })
-            : children
-        }
+      <ToggleContext.Provider value={toggleContextValue}>
+        {childrenToRender}
       </ToggleContext.Provider>
     </div>
   )
