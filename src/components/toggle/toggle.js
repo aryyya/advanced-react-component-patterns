@@ -32,10 +32,14 @@ const Toggle = ({
           onClick: toggle
         }}
       >
-        {children({
-          isOn,
-          toggle
-        })}
+        {
+          typeof children === 'function'
+            ? children({
+              isOn,
+              toggle
+            })
+            : children
+        }
       </ToggleContext.Provider>
     </div>
   )

@@ -17,6 +17,11 @@ const App = () => {
           </div>
         )}
       </Toggle>
+      <br />
+      <Toggle>
+        <Toggle.Switch />
+
+      </Toggle>
     </div>
   )
 }
