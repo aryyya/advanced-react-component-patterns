@@ -7,13 +7,15 @@ const App = () => {
   return (
     <div className="app">
       <Toggle>
-        <Toggle.Switch />
-        <Toggle.On>
-          <p style={{ textAlign: 'center' }}>The switch is on!</p>
-        </Toggle.On>
-        <Toggle.Off>
-          <p style={{ textAlign: 'center' }}>The switch is off.</p>
-        </Toggle.Off>
+        {({ isOn, toggle }) => (
+          <div>
+            <Toggle.Switch />
+            <input type="checkbox" checked={isOn} onChange={toggle} />
+            &nbsp;
+            <Toggle.On>The switch is on!</Toggle.On>
+            <Toggle.Off>The switch is off.</Toggle.Off>
+          </div>
+        )}
       </Toggle>
     </div>
   )

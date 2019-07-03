@@ -32,7 +32,10 @@ const Toggle = ({
           onClick: toggle
         }}
       >
-        {children}
+        {children({
+          isOn,
+          toggle
+        })}
       </ToggleContext.Provider>
     </div>
   )
