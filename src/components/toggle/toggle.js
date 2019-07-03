@@ -39,11 +39,16 @@ const Toggle = ({
     ...props
   })
 
+  const reset = () => {
+    setIsOn(false)
+  }
+
   const childrenToRender = typeof children === 'function'
     ? children({
       isOn,
       toggle,
-      getTogglerProps
+      getTogglerProps,
+      reset
     })
     : children
 

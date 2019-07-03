@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div className="app">
       <Toggle>
-        {({ isOn, toggle, getTogglerProps }) => (
+        {({ isOn, toggle, getTogglerProps, reset }) => (
           <div>
             <Toggle.Switch />
             <input type="checkbox" checked={isOn} onChange={toggle} />
@@ -26,6 +26,12 @@ const App = () => {
                 style={{ padding: '5px 10px' }}
               >
                 {isOn ? 'ON' : 'OFF'}
+              </button>
+              <button
+                style={{ padding: '5px 10px' }}
+                onClick={reset}
+              >
+                RESET
               </button>
             </div>
           </div>
