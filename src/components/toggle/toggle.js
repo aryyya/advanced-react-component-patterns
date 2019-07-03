@@ -6,6 +6,8 @@ import React, {
 
 import Switch from '../switch/switch'
 
+import { callAll } from '../../utility'
+
 const ToggleContext = createContext()
 
 const useToggleContext = () => {
@@ -33,10 +35,7 @@ const Toggle = ({
     onClick,
     ...props
   } = {}) => ({
-    onClick: (...args) => {
-      onClick && onClick(...args)
-      toggle()
-    },
+    onClick: callAll(onClick, toggle),
     ...props
   })
 
