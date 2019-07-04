@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 
 import Toggle from './components/toggle/toggle'
+import ToggleClass from './components/toggle/toggle-class'
 
 const App = () => {
   return (
@@ -47,6 +48,22 @@ const App = () => {
           <div>OFF</div>
         </Toggle.Off>
       </Toggle>
+      <ToggleClass>
+        {({ toggle, isOn }) => (
+          <div>
+            <ToggleClass.Switch />
+            <ToggleClass.On>
+              <div>This switch is on!</div>
+            </ToggleClass.On>
+            <ToggleClass.Off>
+              <div>This switch is off.</div>
+            </ToggleClass.Off>
+            <div>
+              <button style={{ backgroundColor: isOn ? 'red' : 'blue'}} onClick={toggle}>CLICK ME</button>
+            </div>
+          </div>
+        )}
+      </ToggleClass>
     </div>
   )
 }
